@@ -1,0 +1,617 @@
+/*
+    Created on : 12-jul-2016, 8:52:46
+    Author     : Sebastian F. Mena
+*/
+
+
+/* Generales */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow-x: hidden;
+    background: black;
+}
+
+mark {
+    background-color: rgba(216, 216, 216, 0.28);
+    color: white;
+}
+
+hr {
+    border: 0;
+    border-bottom: 5px dashed rgba(255, 255, 255, 0.65);
+    background: rgba(0, 0, 0, 0.27);
+    box-shadow: 0px 0px 10px #000;
+}
+
+
+/* Scrollbar  */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+::-webkit-scrollbar {
+    width: .65em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(35, 35, 35);}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(107, 107, 107);
+}
+
+
+/* Fuentes */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+/*Adamas*/
+@font-face {
+    font-family: 'Adamas';
+    src: url('../Fuentes/Adamas/Adamas.eot?#iefix') format('embedded-opentype'),
+        url('../Fuentes/Adamas/Adamas.otf')  format('opentype'),
+        url('../Fuentes/Adamas/Adamas.woff') format('woff'),
+        url('../Fuentes/Adamas/Adamas.ttf')  format('truetype'),
+        url('../Fuentes/Adamas/Adamas.svg#Adamas') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*Ico Moon*/
+@font-face {
+    font-family: 'Ico-Moon';
+    src: url('../Fuentes/Ico-Moon/Ico-Moon.eot?#iefix') format('embedded-opentype'),
+        url('../Fuentes/Ico-Moon/Ico-Moon.woff') format('woff'),
+        url('/Fuentes/Ico-Moon/Ico-Moon.ttf') format('truetype'),
+        url('../Fuentes/Ico-Moon/Ico-Moon.svg#Ico-Moon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Geomanist*/
+@font-face {
+    font-family: 'Geomanist';
+    src: url('../Fuentes/Geomanist/Geomanist.eot?#iefix') format('embedded-opentype'),
+        url('../Fuentes/Geomanist/Geomanist.woff') format('woff'),
+        url('/Fuentes/Geomanist/Geomanist.ttf') format('truetype'),
+        url('../Fuentes/Geomanist/Geomanist.svg#Geomanist') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-rocket .path1:before {
+    content: "\e904";
+    color: #ff4f19;
+}
+.icon-rocket .path2:before {
+    content: "\e905";
+    color: #e9001e;
+    margin-left: -1em;
+}
+.icon-rocket .path3:before {
+    content: "\e906";
+    color: #ffd200;
+    margin-left: -1em;
+}
+.icon-rocket .path4:before {
+    content: "\e907";
+    color: #ff9600;
+    margin-left: -1em;
+}
+.icon-rocket .path5:before {
+    content: "\e908";
+    color: #53dcff;
+    margin-left: -1em;
+}
+.icon-rocket .path6:before {
+    content: "\e909";
+    color: #ff4f19;
+    margin-left: -1em;
+}
+.icon-rocket .path7:before {
+    content: "\e90a";
+    color: #ff4f19;
+    margin-left: -1em;
+}
+.icon-rocket .path8:before {
+    content: "\e90b";
+    color: #e9001e;
+    margin-left: -1em;
+}
+.icon-rocket .path9:before {
+    content: "\e90c";
+    color: #b3f4ff;
+    margin-left: -1em;
+}
+.icon-rocket .path10:before {
+    content: "\e90d";
+    color: #5c546a;
+    margin-left: -1em;
+}
+
+
+/* Maqueta basica */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+.posicion_absoluta{
+    position:  absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+
+.ventana_completa{
+    width:  100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* Contenido */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.capa_1{
+    z-index: 4;
+}
+
+.capa_2{
+    z-index: 3;
+}
+
+.capa_3{
+    z-index: 2;
+}
+
+.capa_4{
+    z-index: 1;
+}
+
+
+
+/* Capa 1 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+header{
+    position: fixed;
+    width: 100vw;
+    height: 11vh;
+    /* background-color: rgba(0, 0, 0, 0.31);
+     border-bottom: 10px solid rgba(62, 62, 62, 0.39);*/
+}
+
+
+
+/* Nombre */
+#nombre_header{
+    font-family: "Adamas";
+    text-shadow: 5px 0px 0px rgba(0, 196, 255, 0.52);
+    color: #fff;
+    height: 11vh;
+    line-height: 11vh;
+    width: 100%;
+    text-align: center;
+    font-size: 6vh;
+    /*opacity: 0;*/
+}
+
+#nombre_mini.visible{
+    opacity: 1;
+}
+
+
+/* Cohete */
+.icon-rocket {
+    font-family: "Ico-Moon";
+    font-size: 1vw;
+    float: right;
+    height: 100%;
+    line-height: 3vw;
+    margin: 0 1vw;
+    color: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+}
+
+
+/* Menu */
+
+nav{
+    width: 27vh;
+    text-align: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -27vh;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.13);
+    -webkit-transition: left 500ms;
+    -moz-transition: left 500ms;
+    -o-transition: left 500ms;
+    transition: left 500ms;
+}
+
+nav.activo{
+    left: 0;
+    -webkit-transition: left 500ms;
+    -moz-transition: left 500ms;
+    -o-transition: left 500ms;
+    transition: left 500ms;
+}
+
+/* Icono Hamburguesa */
+
+/*!
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+
+.hamburger {
+    padding: 4vh;
+    display: inline-block;
+    position: absolute;
+    left: 29vh;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    outline: none;
+}
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger-box {
+    width: 6vh;
+    height: 5vh;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+}
+.hamburger-inner, .hamburger-inner::before,
+.hamburger-inner::after {
+    width: 6vh;
+    height: 0.6vh;
+    background-color: #FFF;
+    position: absolute;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    box-shadow: 0vh 0vh .6vh 0.2vh rgba(0, 0, 0, 0.41),0vh 0vh .5vh 0.1vh rgb(255, 255, 255);
+
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+.hamburger-inner::before {
+    top: -10px;
+}
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+/* Spin  */
+.hamburger--spin .hamburger-inner {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.34s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.34s ease-in, -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.activo .hamburger-inner {
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    transition-delay: 0.14s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.activo .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out;
+}
+
+.hamburger--spin.activo .hamburger-inner::after {
+    bottom: 0;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, -webkit-transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+
+
+/* Lista Menu */
+ul {
+    color: rgb(255, 255, 255);
+    font-family: "Geomanist";
+    letter-spacing: .5vh;
+    list-style: none;
+    font-size: 2.5vh;
+    text-transform: uppercase;
+    padding-top: 3vh;
+}
+
+li {
+    height: 6vh;
+    cursor: pointer;
+    line-height: 6vh;
+}
+
+li:hover {
+    background-color: rgba(0, 111, 175, 0.39);
+}
+
+
+
+/* Capa 2 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#titulo {
+    text-align: center;
+    margin: auto;
+    height: 38vh;
+}
+
+/* Nombre Grande */
+#nombre{
+    font-family: "Adamas";
+    text-shadow: .3vw 0 .1vw #00C4FF;
+    color: #fff;
+    font-size: 7vw;
+    line-height: 18vw;
+    height: 15vw;
+    /* opacity: 0; */
+}
+
+#oficio {
+    font-family: "Geomanist";
+    font-size:  1.7vw;
+    color: whitesmoke;
+    letter-spacing: 2.5vw;
+    /* opacity: 0; */
+    /* line-height: 0vw; */
+    text-shadow: 0px 0px 10px #99daff;
+}
+
+
+/* Capa 3 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.capa_2{
+    position: relative;
+    width: 100vw;
+    height: auto;
+}
+
+.capa_2 article{
+    position: relative;
+}
+
+
+.flotante{
+    height: 100%;
+    width: 50%;
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+
+
+.titulo{
+    font-family: "Geomanist";
+    font-size: 4.7vw;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: .5vw;
+    text-transform: uppercase;
+    /*opacity: 0;*/
+    text-shadow: 0px 0px 10px #000;
+}
+
+
+#sobre_mi {
+    position: absolute;
+    margin: auto;
+    right: 14vw;
+    left: 0;
+    top: -50vh;
+    bottom: 0;
+    width: 24vw;
+    height: 8vh;
+}
+
+#mi_trabajo {
+    position: absolute;
+    margin: auto;
+    right: -16vw;
+    left: 0;
+    top: -50vh;
+    bottom: 0;
+    width: 31vw;
+    height: 8vh;
+}
+
+
+
+.box_contenedor{
+    font-family: "Geomanist";
+    position: absolute;
+    margin: auto;
+    top: 21vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    height: 60%;
+    width: 100%;
+    font-size: 2.5vh;
+    text-align: justify;
+    /*opacity: 0;*/
+}
+
+.box_contenedor p{
+    padding: 0px 69px;
+    width: 73%;
+}
+
+
+#foto_perfil{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    width: 12vw;
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0px 0px 10px #000;
+    padding: 1%;
+    border-radius: 7%;
+    cursor: pointer;
+    /*opacity: 0;*/
+}
+
+
+
+.box{
+    width: 13vw;
+    height: 13vw;
+    /*opacity: 0;*/
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 7%;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    float:  left;
+    margin: 1vw;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    box-shadow: 0px 0px 10px #000;
+}
+
+.box:hover{
+    -webkit-transition:all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transform:scale(1.05, 1.05);
+    transform:scale(1.05, 1.05);
+}
+
+#portafolio{
+    top: 30vh;
+    padding: 0px 3vh;
+    opacity: 1;
+}
+
+
+
+#pasatiempos {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 33.5vw;
+    height: 8vh;
+}
+
+/* Capa 4 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#via_lactea{
+    width: 60%;
+    position: absolute;
+    top: -62vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-filter: blur(1px);
+    max-width: 1262px;
+}
+
+
+#luna,
+#tierra{
+    margin: auto;
+    position: absolute;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+#luna {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    top: 400vh;
+    left: 0;
+    -webkit-transition: width 1000ms;
+    -moz-transition: width 500ms;
+    -o-transition: width 500ms;
+    transition: width 1000ms;
+    max-width: 835px;
+}
+
+#tierra {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    top: 225%;
+    left: 0;
+    -webkit-transition: width 500ms;
+    -moz-transition: width 500ms;
+    -o-transition: width 500ms;
+    transition: width 100ms;
+    max-width: 1792px;
+}
+
+
+/* Capa X */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+#fondo_estrellado{
+    /*height: 300vh;*/
+    height: 100vh;
+    background-image: url("../Imagenes/Estrellas_c.png");
+    /*background-size: 100%;*/
+    z-index: 0;
+}
+
+article {
+    border: 1px solid red;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    height: 30vh !important;
+    width: 100vw;
+}

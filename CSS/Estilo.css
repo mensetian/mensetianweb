@@ -1,0 +1,705 @@
+/*
+    Created on : 12-jul-2016, 8:52:46
+    Author     : Sebastian F. Mena
+*/
+
+/* General */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow-x: hidden;
+}
+
+mark {
+    background-color: rgba(216, 216, 216, 0.28);
+    color: white;
+}
+
+hr {
+    border: 0;
+    border-bottom: 5px dashed rgba(255, 255, 255, 0.65);
+    background: rgba(0, 0, 0, 0.27);
+    box-shadow: 0px 0px 10px #000;
+}
+
+/* Scrollbar  */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+::-webkit-scrollbar {
+    width: .65em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(35, 35, 35);}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(107, 107, 107);
+}
+
+/* Fuentes */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/* Adamas */
+@font-face{
+    font-family: "Adamas";
+    src: url( '../Fuentes/Adamas.otf' );
+}
+
+/* Forum */
+@font-face{
+    font-family: "Forum";
+    src: url( '../Fuentes/Forum.otf' );
+}
+
+/* Sketch */
+@font-face{
+    font-family: "Sketch";
+    src: url( '../Fuentes/Sketch.ttf' );
+}
+
+/* Tracion */
+@font-face{
+    font-family: "Tracion";
+    src: url( '../Fuentes/Tracion.ttf' );
+}
+
+/* Geomanist */
+@font-face{
+    font-family: "Geomanist";
+    src: url( '../Fuentes/Geomanist.otf' );
+}
+
+
+/* Ico Moon */
+@font-face {
+    font-family: 'Icomoon';
+    src: url('../Fuentes/Ico-Moon/icomoon.eot');
+    src: url('../Fuentes/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../Fuentes/Ico-Moon/icomoon.woff') format('woff'),
+        url('../Fuentes/Ico-Moon/icomoon.ttf') format('truetype'),
+        url('../Fuentes/icomoon/icomoon.svg#icomoon') format('svg');
+}
+
+.icon-space-invaders:before {
+    content: "\e901";
+}
+.icon-gamepad:before {
+    content: "\e903";
+}
+.icon-pacman:before {
+    content: "\e916";
+}
+.icon-google-plus:before {
+    content: "\ea8d";
+}
+.icon-rocket:before {
+    content: "\e9a5";
+}
+.icon-at:before {
+    content: "\e900";
+}
+.icon-facebook:before {
+    content: "\ea91";
+}
+.icon-instagram:before {
+    content: "\ea92";
+}
+.icon-whatsapp:before {
+    content: "\ea93";
+}
+.icon-twitter:before {
+    content: "\ea96";
+}
+.icon-tumblr:before {
+    content: "\eaba";
+}
+.icon-youtube:before {
+    content: "\ea9e";
+}
+
+/* Ejemplo Fuentes */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+#nombre1{
+    font-family: "Adamas";
+    color: #fff;
+    font-size: 8em;
+}
+
+#nombre2{
+    font-family: "Forum";
+    color: white;
+    font-size: 8em;
+}
+
+#nombre3{
+    font-family: "Sketch";
+    color: white;
+    font-size: 8em;
+}
+
+#nombre4{
+    font-family: "Tracion";
+    color: white;
+    font-size: 8em;
+}
+
+#nombre5{
+    font-family: "Geomanist";
+    color: white;
+    font-size: 8em;
+}
+
+
+/* Maqueta basica */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#contenedor{
+    width:  100%;
+    height: auto;
+    background-color: #3c3c3c;
+    background-image: url("../Imagenes/Estrellas_c.png");
+    background-size: 85%;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 3vw;
+    background-color: rgba(193, 193, 193, 0.23);
+    box-shadow: 0px 7px 0px 0px rgba(80, 80, 80, 0.37);
+    z-index: 999;
+}
+
+section{
+    display: block;
+    position: relative;
+    height: 100vh;
+    border: 1px dotted white;
+}
+
+footer{
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    background: -moz-linear-gradient(270deg, rgba(153,218,255,0) 0%, rgba(0,0,0,1) 55%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(153,218,255,0)), color-stop(55%, rgba(0,0,0,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(270deg, rgba(153,218,255,0) 0%, rgba(0,0,0,1) 55%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(270deg, rgba(153,218,255,0) 0%, rgba(0,0,0,1) 55%); /* opera 11.10+ */
+    background: -ms-linear-gradient(270deg, rgba(153,218,255,0) 0%, rgba(0,0,0,1) 55%); /* ie10+ */
+    background: linear-gradient(180deg, rgba(153,218,255,0) 0%, rgba(0,0,0,1) 55%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99DAFF', endColorstr='#000000',GradientType=0 ); /* ie6-9 */
+}
+
+.caja_desenfoque{
+    position: fixed;
+    height: 35vh;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
+    background: -moz-linear-gradient(270deg, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 56%, rgba(0,0,0,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(11%, rgba(0,0,0,0)), color-stop(56%, rgba(0,0,0,0.5)), color-stop(100%, rgba(0,0,0,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(270deg, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 56%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(270deg, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 56%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(270deg, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 56%, rgba(0,0,0,1) 100%); /* ie10+ */
+    background: linear-gradient(180deg, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 56%, rgba(0,0,0,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 ); /* ie6-9 */
+}
+
+
+/* Planetas */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#luna,
+#tierra{
+    margin: auto;
+    position: absolute;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+#luna {
+    bottom: 0;
+    right: 0;
+    width:  30vh;
+    top: 92vh;
+    left: 0;
+    -webkit-transition: width 1000ms;
+    -moz-transition: width 500ms;
+    -o-transition: width 500ms;
+    transition: width 1000ms;
+}
+
+#tierra {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    top: 200%;
+    left: 0;
+    -webkit-transition: width 500ms;
+    -moz-transition: width 500ms;
+    -o-transition: width 500ms;
+    transition: width 100ms;
+}
+
+
+
+/* Header */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/* Cohete */
+.icon-rocket {
+    font-family: "Icomoon";
+    font-size: 33px;
+    float: right;
+    height: 100%;
+    line-height: 3vw;
+    margin: 0 1vw;
+    color: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+}
+
+
+/* Nombre */
+#nombre_mini{
+    font-family: "Adamas";
+    text-shadow: 0px 0px 0px rgba(0, 196, 255, 0.52);
+    color: #fff;
+    height: 3vw;
+    line-height: 4vw;
+    width: 100%;
+    text-align: center;
+    font-size: 2vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+#nombre_mini.visible{
+    opacity: 1;
+}
+
+#redes_contenendor {
+    font-family: "Icomoon";
+    position: absolute;
+    overflow: hidden;
+    right: 31px;
+    bottom: 21px;
+    height: 10%;
+    line-height: 89px;
+}
+
+#redes{
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 1.8em;
+    margin-left: 91px;
+    cursor: default;
+}
+
+#redes_contenendor .icon-pacman{
+    color: rgba(243, 230, 79, 0.62);
+    font-size: 4em;
+    position: absolute;
+    top: -3px;
+    overflow: hidden;
+    left: 12px;
+}
+
+
+#redes_contenendor span:hover{
+    cursor: pointer;
+}
+
+/* PacMan */
+#redes_contenendor .icon-pacman:hover{
+    color:  rgba(243, 230, 79, 0.82);
+}
+/* Twitter */
+#redes span:nth-child(1):hover{
+    color: rgba(73, 181, 214, 0.52);
+}
+/* G+ */
+#redes span:nth-child(2):hover{
+    color:rgba(219, 68, 55, 0.72);
+}
+/* WhatsApp */
+#redes span:nth-child(3):hover{
+    color:rgba(145, 255, 77, 0.58);
+}
+/* Instagram */
+#redes span:nth-child(4):hover{
+    color:rgba(255, 65, 144, 0.54);
+}
+/* FaceBook */
+#redes span:nth-child(5):hover{
+    color:rgba(79, 152, 214, 0.62);
+}
+/* Tumblr */
+#redes span:nth-child(6):hover{
+    color:rgba(54, 70, 93, 0.82);
+}
+/* YouTube */
+#redes span:nth-child(7):hover{
+    color:rgba(230, 33, 23, 0.62);
+}
+/* Arroba */
+#redes span:nth-child(8):hover{
+    color: rgba(255, 255, 255, .9);
+}
+
+
+/* Menu */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+nav{
+    width: 235px;
+    text-align: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -241.5px;
+    z-index: 10024;
+    background-color: rgba(0, 0, 0, 0.63);
+    box-shadow: 5.5px 0px 0px 0px rgba(31, 31, 31, 0.71);
+    -webkit-transition: left 500ms;
+    -moz-transition: left 500ms;
+    -o-transition: left 500ms;
+    transition: left 500ms;
+}
+
+nav.open{
+    left: 0;
+    -webkit-transition: left 500ms;
+    -moz-transition: left 500ms;
+    -o-transition: left 500ms;
+    transition: left 500ms;
+}
+
+/* Hamburguesa contenedor */
+
+#contenedor_hamburguesa{
+    position: absolute;
+    right: -100px;
+    top: 0;
+    width: 100px;
+}
+
+/* Icono Hamburguesa */
+
+
+#hamburguesa {
+    width: 50px;
+    height: 32px;
+    position: relative;
+    margin: 13px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#hamburguesa span {
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.63);
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#hamburguesa span:nth-child(1) {
+    top: 0px;
+}
+
+#hamburguesa span:nth-child(2) {
+    top: 12px;
+}
+
+#hamburguesa span:nth-child(3) {
+    top: 24px;
+}
+
+#hamburguesa.open span:nth-child(1) {
+    top: 12px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#hamburguesa.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+#hamburguesa.open span:nth-child(3) {
+    top: 12px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+/* Lista */
+ul {
+    color: rgba(255, 255, 255, 0.76);
+    font-family: "Geomanist";
+    letter-spacing: 2px;
+    list-style: none;
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+li {
+    height: 6vh;
+    cursor: pointer;
+    line-height: 6vh;
+}
+
+li:hover {
+    background-color: rgba(0, 111, 175, 0.39);
+}
+
+
+
+/* Seccion 1 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+.vista{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+
+/* Nombre Grande */
+.texto_centrado{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 22vw;
+    text-align: center;
+    overflow: hidden;
+    z-index: 999999;
+}
+
+#nombre{
+    font-family: "Adamas";
+    text-shadow: 6px 0px 1px #00C4FF;
+    color: #fff;
+    font-size: 7vw;
+    line-height: 145%;
+    opacity: 0;
+}
+
+#oficio {
+    font-family: "Geomanist";
+    font-size:  1.7vw;
+    color: whitesmoke;
+    letter-spacing: 2.5vw;
+    opacity: 0;
+    text-shadow: 0px 0px 10px #99daff;
+}
+
+#via_lactea{
+    width: 27vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
+#via_lactea_2{
+    width: 24vw;
+    position: absolute;
+    top: -10vw;
+    left: 20vw;
+    transform: rotate(340deg);
+}
+
+/* Seccion 2 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+.flotante{
+    height: 100%;
+    width: 50%;
+    position: relative;
+    display: inline-block;
+    float: left;
+    z-index: 9999999;
+}
+
+
+.titulo{
+    font-family: "Geomanist";
+    font-size: 4.7vw;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: .5vw;
+    text-transform: uppercase;
+    opacity: 0;
+    text-shadow: 0px 0px 10px #000;
+}
+
+
+#sobre_mi {
+    position: absolute;
+    margin: auto;
+    right: 14vw;
+    left: 0;
+    top: -50vh;
+    bottom: 0;
+    width: 24vw;
+    height: 8vh;
+}
+
+#mi_trabajo {
+    position: absolute;
+    margin: auto;
+    right: -16vw;
+    left: 0;
+    top: -50vh;
+    bottom: 0;
+    width: 31vw;
+    height: 8vh;
+}
+
+
+
+.box_contenedor{
+    font-family: "Geomanist";
+    position: absolute;
+    margin: auto;
+    top: 21vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    height: 60%;
+    width: 100%;
+    font-size: 2.5vh;
+    text-align: justify;
+    opacity: 0;
+}
+
+.box_contenedor p{
+    padding: 0px 69px;
+    width: 73%;
+}
+
+
+#foto_perfil{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    width: 12vw;
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0px 0px 10px #000;
+    padding: 1%;
+    border-radius: 7%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+
+
+.box{
+    width: 13vw;
+    height: 13vw;
+    opacity: 0;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 7%;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    float:  left;
+    margin: 1vw;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    box-shadow: 0px 0px 10px #000;
+}
+
+.box:hover{
+    -webkit-transition:all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transform:scale(1.05, 1.05);
+    transform:scale(1.05, 1.05);
+}
+
+#portafolio{
+    top: 30vh;
+    padding: 0px 3vh;
+    opacity: 1;
+}
+
+
+/* Seccion 3 */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+#pasatiempos {
+    position: absolute;
+    margin: auto;
+    right: -16vw;
+    left: 0;
+    top: -50vh;
+    bottom: 0;
+    width: 31vw;
+    height: 8vh;
+    z-index: 999999;
+}
+
+
+
+
+/* Animacion */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.desvanecer{
+    opacity: 1 !important;
+    transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+}
+
+.aparecer{
+    -webkit-transition:all .7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition:all .7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition:all .7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+
+
