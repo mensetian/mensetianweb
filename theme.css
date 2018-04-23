@@ -1,0 +1,8 @@
+body{
+    background: black;
+    font-size: 12px;
+}
+
+body span{
+    font-size: 1rem;
+}
