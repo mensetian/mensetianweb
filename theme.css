@@ -14,5 +14,19 @@ body span{
     font-family: 'Berylium-bold';
     font-size: 5rem;
     color: #dadada;
-    text-shadow: 4px 2px 0px black;
+}
+
+body span.animado{
+    animation-name: glitch;
+    animation-duration: 100ms;
+    animation-iteration-count: infinite;
+}
+
+/* The animation code */
+@keyframes glitch {
+    from {
+        text-shadow: 4px 2px 0px black;
+    }to {
+        text-shadow: -8px 1px 0 #35d1d396, 6px 3px 0 #900000db, 9px -3px 0 #ffffff99;
+    }
 }
