@@ -3,8 +3,10 @@
 $('body').bind('mousewheel', function (e) {
     console.log(e.originalEvent.wheelDelta);
     if (e.originalEvent.wheelDelta / 120 > 0) {
-        alert('up');
+        console.log('up');
+        $('body span').addClass('animado');
     } else {
-        alert('down');
+        $('body span').removeClass('animado');
+        console.log('down');
     }
 });
