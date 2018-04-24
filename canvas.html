@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>mensetian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        <link rel="stylesheet" type="text/css" href="Berylium/Berylium.css">
+        <script>
+            const offset = {
+                x1: 0, y1: 0,
+                x2: 0, y2: 0,
+            }
+
+            const words = [
+                'zero',
+                'one',
+                'two',
+                'three',
+                'four',
+                'five',
+                'six',
+                'seven',
+                'eight',
+                'nine',
+            ]
+
+            const canvas = document.querySelector('#playground')
+            const ctx = canvas.getContext('2d')
+
+            const splitCanvas = document.createElement('canvas')
+            const splitCtx = splitCanvas.getContext('2d')
+
+            canvas.width = splitCanvas.width = window.innerWidth
+            canvas.height = splitCanvas.height = 300 //window.innerHeight
+
+
+            const randInt = (a, b) => ~~(Math.random() * (b - a) + a)
+
+            const addRandomOffset = (x, y) => {
+                const minX = -x
+                const maxX = x
+                const randomX = Math.random() * (maxX - minX) + minX
+
+                const minY = -y
+                const maxY = y
+                const randomY = Math.random() * (maxY - minY) + minY
+
+                offset.x1 = randomX / 1
+                offset.x2 = randomX / 2
+
+                offset.y1 = randomY / 2
+                offset.y2 = randomY / 4
+            }
+
+
+            const drawText = (text, fontSize, color) => {
+                ctx.fillStyle = color
+                ctx.font = `800 ${fontSize}px Arial`
+                ctx.textBaseline = 'middle'
+                ctx.textAlign = 'center'
+
+                ctx.fillText(text.toUpperCase(), canvas.width / 2, canvas.height / 2)
+            }
+
+            const glitch = () => {
+                for (let i = 0; i < randInt(1, 10); i++) {
+                    const x = Math.random() * canvas.width
+                    const y = Math.random() * canvas.height
+
+                    const spliceWidth = canvas.width - x
+                    const spliceHeight = randInt(5, canvas.height / 3)
+
+                    ctx.drawImage(canvas, 0, y, spliceWidth, spliceHeight, x, y, spliceWidth, spliceHeight)
+                    ctx.drawImage(canvas, spliceWidth, y, x, spliceHeight, 0, y, x, spliceHeight)
+                }
+            }
+
+            const blur = () => {
+                splitCtx.clearRect(0, 0, splitCanvas.width, splitCanvas.height)
+
+                splitCtx.drawImage(canvas, 0, 0)
+
+                ctx.globalAlpha = 5
+
+                ctx.drawImage(splitCanvas, offset.x1, offset.y1)
+                ctx.drawImage(splitCanvas, offset.x1, offset.y1)
+
+                ctx.drawImage(splitCanvas, offset.x2, offset.y2)
+                ctx.drawImage(splitCanvas, offset.x2, offset.y2)
+
+                ctx.globalAlpha = 1
+            }
+
+            const split = () => {
+                splitCtx.clearRect(0, 0, splitCanvas.width, splitCanvas.height)
+
+                let w = canvas.width
+                let h = canvas.height
+
+                let x = Math.random() * w
+                let y = Math.random() * h
+
+                let spliceWidth = w - x;
+                let spliceHeight = randInt(5, h / 3)
+
+                splitCtx.drawImage(canvas, 0, 0)
+
+                splitCtx.globalCompositeOperation = 'source-in'
+
+                splitCtx.fillStyle = 'rgba(255, 255, 255, 1)'
+
+                splitCtx.fillRect(0, 0, canvas.width / randInt(2, 10), canvas.height / 1)
+
+                ctx.drawImage(splitCanvas, 0, 0, spliceWidth, spliceHeight, x, y, spliceWidth, spliceHeight)
+
+
+                splitCtx.globalCompositeOperation = 'source-over'
+            }
+
+            let change = false
+            let wi = 0
+
+            const nextWord = () => {
+                change = true
+
+                setTimeout(() => {
+                    change = false
+                }, 280)
+
+                setTimeout(() => {
+                    if (wi < words.length - 1) {
+                        wi++
+                    } else {
+                        wi = 0
+                    }
+                }, 140)
+            }
+
+
+            const loop = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+                ctx.fillStyle = '#222'
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+                drawText(words[wi], 200, '#fff')
+
+                if (change) {
+                    glitch()
+
+                    addRandomOffset(12, 2)
+                    blur()
+
+                    split()
+                }
+
+                requestAnimationFrame(loop)
+            }
+            loop()
+
+            setInterval(() => {
+                nextWord()
+            }, 2000)
+
+        </script>
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 0;
+                background: #222;
+            }
+            canvas {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+            }
+
+        </style>
+        <canvas id="playground"></canvas>
+
+    </body>
+</html>
+
