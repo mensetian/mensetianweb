@@ -18,15 +18,14 @@ body span{
 
 body span.animado{
     animation-name: glitch;
-    animation-duration: 100ms;
-    animation-iteration-count: infinite;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
 }
 
 /* The animation code */
 @keyframes glitch {
-    from {
-        text-shadow: 4px 2px 0px black;
-    }to {
-        text-shadow: -8px 1px 0 #35d1d396, 6px 3px 0 #900000db, 9px -3px 0 #ffffff99;
-    }
+    0%{text-shadow: 4px 2px 0px black;}
+    10%{text-shadow: -8px 1px 0 #35d1d396, 8px 3px 0 #900000db, 10px -1px 0 #ffffff99;}
+    100%{text-shadow: 0 0 0 #ffffff99;}
 }

@@ -2,11 +2,11 @@
 
 $('body').bind('mousewheel', function (e) {
     console.log(e.originalEvent.wheelDelta);
+    $('body span').addClass('animado').removeClass('animado');
     if (e.originalEvent.wheelDelta / 120 > 0) {
         console.log('up');
-        $('body span').addClass('animado');
     } else {
-        $('body span').removeClass('animado');
+        $('body span');
         console.log('down');
     }
 });
